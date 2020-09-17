@@ -10,6 +10,7 @@ function App() {
     const { Color, toggleChange } = DarkMode();
 
     const location = useLocation();
+
     return (
         <ThemeProvider theme={{ mode: Color }}>
             <Box>
