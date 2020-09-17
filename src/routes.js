@@ -1,9 +1,8 @@
 import Details from "./pages/Details.jsx";
 import LandingPage from "./pages/LandingPage.jsx";
-import Marks from "./pages/Marks.jsx";
-
+import NotFound from "./pages/404";
 export const routes = [
     { path: "/", Component: LandingPage, name: "home" },
-    { path: "/marks", Component: Marks, name: "marks" },
     { path: "/details/:id", Component: Details, name: "details" },
+    { path: "*", Component: NotFound, name: "notFound" },
 ];
