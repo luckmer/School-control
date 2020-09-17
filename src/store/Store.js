@@ -20,16 +20,22 @@ export default ({ children }) => {
         find: [],
     });
 
+    const [Detail, setDetail] = useState({
+        DetailContext: [],
+    });
+
     const store = {
         TEXT: [state, setState],
         DATA: [table, setTable],
         SOLUTION: [Solution, setSolution],
+        DETAILS: [Detail, setDetail],
     };
-    console.log(Solution);
+
     useEffect(() => {
         const store = JSON.parse(localStorage.getItem("DATAContext"));
         if (store) setTable(store);
     }, []);
+
     useEffect(() => {
         localStorage.setItem("DATAContext", JSON.stringify(table));
     }, [table]);
