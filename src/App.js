@@ -13,8 +13,8 @@ function App() {
 
     return (
         <ThemeProvider theme={{ mode: Color }}>
-            <Box>
-                <Store>
+            <Store>
+                <Box>
                     <NavBar type={Color} toggleChange={toggleChange} />
                     <Switch location={location} key={location.pathname}>
                         {routes.map(({ path, Component }) => (
@@ -26,8 +26,8 @@ function App() {
                             />
                         ))}
                     </Switch>
-                </Store>
-            </Box>
+                </Box>
+            </Store>
         </ThemeProvider>
     );
 }
