@@ -6,12 +6,12 @@
 [x] tiny functionality ,
 [x] edit /delete
 [x] details
-[] pagination
+[x] pagination
 [x] search
 [] calculator for marks
 [x] dark mode
-[] better view
-[] mobile version
+[x] better view
+[x] mobile version
 
 what the project do?
 
