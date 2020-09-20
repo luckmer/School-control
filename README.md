@@ -1,4 +1,4 @@
-[] tests
+
 [x] Context,
 [x] Store,
 [x] RWD,
@@ -16,3 +16,6 @@
 what the project do?
 
 main page is used to store various notes second to calculate the average
+
+![Image of the landing page](https://i.imgur.com/FaUzt1n.png)
+![Image of the mobile page](https://i.imgur.com/taEDNJi.png)
