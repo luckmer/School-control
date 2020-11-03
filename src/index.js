@@ -4,16 +4,18 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router } from "react-router-dom";
 import GlobalStyle from "./styles/GlobalStyle";
-import { Store } from "./Imports/Index";
+//import { Store } from "./Imports/Index";
 
+import { Provider } from "react-redux";
+import Store from "./utils/Store";
 ReactDOM.render(
     <React.StrictMode>
-        <Store>
+        <Provider store ={Store}>
             <Router>
                 <GlobalStyle />
                 <App />
             </Router>
-        </Store>
+        </Provider>
     </React.StrictMode>,
     document.getElementById("root")
 );
