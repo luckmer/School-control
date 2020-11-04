@@ -29,7 +29,6 @@ export function TaskDataControl(){
             Mark: Mark,
             Description: Description,
         };
-        // const test = data.concat(Next);
         dispatch(CreateTask(Next));
         setState({
             Subject: "",
