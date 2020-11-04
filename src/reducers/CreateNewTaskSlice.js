@@ -11,13 +11,15 @@ const CreateNewTaskSlice = createSlice({
             reducer: (state, action) => {
                 state.Data.push(action.payload)
             },
-
             prepare: (data) => {
                 return { payload: {data} }
             },
         },
+        DeleteTask: (state) =>{
+            state.Data.splice(state, 1);
+        }
     },
 });
 
-export const { CreateTask } = CreateNewTaskSlice.actions;
+export const { CreateTask,DeleteTask } = CreateNewTaskSlice.actions;
 export default CreateNewTaskSlice.reducer;
