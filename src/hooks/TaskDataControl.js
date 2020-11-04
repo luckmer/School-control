@@ -1,12 +1,19 @@
-import { useContext } from "react";
-import { StoreContext } from "../store/Store";
+import { useState } from "react";
 import { nanoid } from "nanoid";
+import { CreateTask } from "../reducers/CreateNewTaskSlice";
+import { useDispatch } from "react-redux";
 
-export function TaskDataControl() {
-    const {
-        DATA: [table, setTable],
-        TEXT: [state, setState],
-    } = useContext(StoreContext);
+export function TaskDataControl(){
+    const initialState = {
+        id: nanoid(),
+        Subject: "",
+        Teacher: "",
+        Mark: "",
+        Description: "",
+    };
+    const dispatch = useDispatch();
+
+    const [state, setState] = useState(initialState);
     const { Subject, Teacher, Mark, Description } = state;
 
     const handleChange = (e) => {
@@ -14,7 +21,7 @@ export function TaskDataControl() {
     };
 
     const handleUpload = () => {
-        const { data } = table;
+       // const { data } = table;
         const Next = {
             id: nanoid(),
             Subject: Subject,
@@ -22,8 +29,8 @@ export function TaskDataControl() {
             Mark: Mark,
             Description: Description,
         };
-        const test = data.concat(Next);
-        setTable({ data: test });
+        // const test = data.concat(Next);
+        dispatch(CreateTask(Next));
         setState({
             Subject: "",
             Teacher: "",
