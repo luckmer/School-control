@@ -1,23 +1,14 @@
 import React from "react";
-import {
-    Context,
-    Header,
-    TextAreaContext,
-    Buttons,
-    Test,
-    Card,
-} from "../styles/AddTaskStyle";
-
+import { Context, Header, TextAreaContext, Buttons, Test, Card} from "../styles/AddTaskStyle";
 import { TaskDataControl } from "../hooks/TaskDataControl";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-function AddTask({ add, setAdd }) {
-    const { handleUpload, handleChange, state } = TaskDataControl({
-        add,
-        setAdd,
-    });
+function AddTask({ add, setAdd }){
+    
+    const { handleUpload, handleChange, state } = TaskDataControl({add,setAdd});
     const { Subject, Teacher, Mark, Description } = state;
     const { handleSubmit, errors, register } = useForm();
+
     return (
         <>
             {add ? (
