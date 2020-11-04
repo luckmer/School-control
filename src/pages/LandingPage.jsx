@@ -7,14 +7,17 @@ import {
     Context,
 } from "../Imports/Index";
 import { Container, Cards, Finder } from "../styles/LandingStyle";
-
-function LandingPage() {
+import { useSelector } from "react-redux";
+function LandingPage()
+{
+    const state = useSelector(state => state.CreateNewTaskSlice.Data);
+    const Mapping = state.map(({ data }) => data);
     const [LimitControl] = useState(8);
     const [finder, setFinder] = useState({ filterMark: "", filterSubject: "" });
     const { Delete, Edit, find } = DeleteEdit();
 
     const { filterMark, filterSubject } = finder;
-    const { ContextView, paginate, page } = PaginatingControl({
+    const {  paginate, page } = PaginatingControl({
         LimitControl,
         find,
     });
@@ -52,7 +55,7 @@ function LandingPage() {
                 </label>
             </Finder>
             <Cards>
-                {ContextView.map(
+                {Mapping.map(
                     ({ id, Subject, Teacher, Mark, Description }) => (
                         <Context
                             id={id}
