@@ -3,30 +3,37 @@ import AddTask from "./AddTask";
 import { Container, Mobile, Context, Button } from "../styles/Nav";
 import { Link } from "react-router-dom";
 
-function NavBar({ toggleChange }) {
-    const [state, setState] = useState(false);
+import { useDispatch,useSelector } from "react-redux";
+import { SetEditOn } from "../reducers/ContextSlice";
+
+
+function NavBar({ toggleChange })
+{
+    const find = useSelector(state => state.ContextSlice.OnOff)
+    
+    const dispatch = useDispatch();
     const [add, setAdd] = useState(false);
 
     return (
         <>
             <AddTask add={add} setAdd={setAdd} />
             <Container>
-                <Mobile state={state} onClick={() => setState(!state)}>
+                <Mobile state={find} onClick={() => dispatch(SetEditOn({data : true}))}>
                     <div />
                     <div />
                     <br />
                 </Mobile>
-                <Context state={state}>
+                <Context state={find}>
                     <div>
                         <div>
-                            <ul onClick={() => setState(!state)}>
-                                <Button onClick={() => setAdd(!add)}>
+                            <ul onClick={() => dispatch(SetEditOn({data : true}))}>
+                                <Button onClick={() => dispatch(SetEditOn({data : true}))}>
                                     New Task
                                 </Button>
                             </ul>
                         </div>
                         <div>
-                            <ul onClick={() => setState(!state)}>
+                            <ul onClick={() => dispatch(SetEditOn({data : true}))}>
                                 <Link to="/">
                                     <li>School Control</li>
                                 </Link>
@@ -37,13 +44,13 @@ function NavBar({ toggleChange }) {
                                 <li>
                                     <Link
                                         to="/"
-                                        onClick={() => setState(!state)}
+                                        onClick={() => dispatch(SetEditOn({data : true}))}
                                     >
                                         Notes
                                     </Link>
                                 </li>
                             </ul>
-                            <ul onClick={() => setState(!state)}>
+                            <ul onClick={() => dispatch(SetEditOn({data : true}))}>
                                 <li onClick={toggleChange}>Dark</li>
                             </ul>
                         </div>
