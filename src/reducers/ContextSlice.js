@@ -9,16 +9,15 @@ const ContextSlice = createSlice({
     name: "ContextSlice",
     initialState,
     reducers: {
-        SetEditOn: (state) =>{
-            
+        SetEditOn: (state, action) =>
+        {
+            const { data } = action.payload;
+            let test = state.OnOff !== data ? true : false;
+            state.OnOff = test;
         }
     },
 });
+export const { SetEditOn } = ContextSlice.actions;
 
 export default ContextSlice.reducer;
 
-
-// case 'TOGGLE_TODO':
-//     return state.map(todo =>
-//       todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
-//     )
