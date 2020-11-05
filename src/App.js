@@ -6,16 +6,20 @@ import NavBar from "./components/NavBar";
 import { ThemeProvider } from "styled-components";
 import DarkMode from "./hooks/DarkMode";
 import Box from "./styles/Box";
-function App() {
-    const { Color, toggleChange } = DarkMode();
 
+
+import {useSelector} from "react-redux";
+
+function App() {
     const location = useLocation();
 
+    const state = useSelector(state => state.colorMode.mode);
+
     return (
-        <ThemeProvider theme={{ mode: Color }}>
+        <ThemeProvider theme={{ mode: state }}>
             <Store>
                 <Box>
-                    <NavBar type={Color} toggleChange={toggleChange} />
+                    <NavBar type={state}  />
                     <Switch location={location} key={location.pathname}>
                         {routes.map(({ path, Component }) => (
                             <Route
