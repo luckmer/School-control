@@ -8,11 +8,6 @@ export default function DeleteEdit() {
     const { data } = table;
     const { find } = Solution;
 
-    const Delete = (id) => {
-        const clear = data.filter((task) => id !== task.id);
-        setTable({ data: clear });
-    };
-
     const Edit = (id, newName) => {
         const newTableList = data.map((task) => {
             if (id === task.id) {
@@ -28,5 +23,5 @@ export default function DeleteEdit() {
         });
         setTable({ data: newTableList });
     };
-    return { Delete, Edit, find };
+    return {  Edit, find };
 }
