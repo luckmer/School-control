@@ -17,6 +17,9 @@ const CreateNewTaskSlice = createSlice({
         },
         DeleteTask: (state) =>{
             state.Data.splice(state, 1);
+        },
+        EditTask:(state,action)=>{
+            
         }
     },
 });
