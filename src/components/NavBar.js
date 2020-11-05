@@ -4,19 +4,19 @@ import { Container, Mobile, Context, Button } from "../styles/Nav";
 import { Link } from "react-router-dom";
 
 import { useDispatch,useSelector } from "react-redux";
-import { SetEditOn } from "../reducers/ContextSlice";
-
-
+import { SetEditOn,SetAddTaskOn } from "../reducers/ContextSlice";
+import {ToggleMode} from "../reducers/DarkModeSlice";
 function NavBar({ toggleChange })
 {
     const find = useSelector(state => state.ContextSlice.OnOff)
-    
+    const OpenNewTask = useSelector(state => state.ContextSlice.AddTask)
+    const state = useSelector(state => state);
     const dispatch = useDispatch();
     const [add, setAdd] = useState(false);
 
     return (
         <>
-            <AddTask add={add} setAdd={setAdd} />
+            <AddTask add={OpenNewTask} setAdd={setAdd} />
             <Container>
                 <Mobile state={find} onClick={() => dispatch(SetEditOn({data : true}))}>
                     <div />
@@ -27,7 +27,7 @@ function NavBar({ toggleChange })
                     <div>
                         <div>
                             <ul onClick={() => dispatch(SetEditOn({data : true}))}>
-                                <Button onClick={() => dispatch(SetEditOn({data : true}))}>
+                                <Button onClick={() => dispatch(SetAddTaskOn({data: true}))}>
                                     New Task
                                 </Button>
                             </ul>
@@ -51,7 +51,7 @@ function NavBar({ toggleChange })
                                 </li>
                             </ul>
                             <ul onClick={() => dispatch(SetEditOn({data : true}))}>
-                                <li onClick={toggleChange}>Dark</li>
+                                <li onClick={() => dispatch(ToggleMode({data : "dark"}))}>Dark</li>
                             </ul>
                         </div>
                     </div>

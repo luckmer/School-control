@@ -3,8 +3,12 @@ import { Context, Header, TextAreaContext, Buttons, Test, Card} from "../styles/
 import { TaskDataControl } from "../hooks/TaskDataControl";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import {useDispatch} from "react-redux";
+import { SetAddTaskOn } from "../reducers/ContextSlice";
+
 function AddTask({ add, setAdd }){
-    
+
+    const dispatch = useDispatch();
     const { handleUpload, handleChange, state } = TaskDataControl({add,setAdd});
     const { Subject, Teacher, Mark, Description } = state;
     const { handleSubmit, errors, register } = useForm();
@@ -19,7 +23,7 @@ function AddTask({ add, setAdd }){
                             <div>
                                 <Header>
                                     <h4>Add new card</h4>
-                                    <button onClick={() => setAdd(!add)}>
+                                    <button onClick={() => dispatch(SetAddTaskOn({data: true}))}>
                                         X
                                     </button>
                                 </Header>
@@ -83,7 +87,7 @@ function AddTask({ add, setAdd }){
                                     </Button>
                                     <Button
                                         variant="secondary"
-                                        onClick={() => setAdd(!add)}
+                                        onClick={() => dispatch(SetAddTaskOn({data: true}))}
                                     >
                                         cancel
                                     </Button>

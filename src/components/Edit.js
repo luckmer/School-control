@@ -10,7 +10,8 @@ import {
     Card,
 } from "../styles/AddTaskStyle";
 import { useForm } from "react-hook-form";
-
+import { useDispatch  } from "react-redux";
+import { DeleteTask } from "../reducers/CreateNewTaskSlice";
 const initialState = {
     id: nanoid(),
     Subject: "",
@@ -20,6 +21,7 @@ const initialState = {
 };
 
 function EditName({ props, setIsEditing }) {
+    const dispatch = useDispatch()
     const [newName, setNewName] = useState(initialState);
     const { Subject, Teacher, Mark, Description } = newName;
     const { errors, handleSubmit, register } = useForm();
@@ -116,7 +118,7 @@ function EditName({ props, setIsEditing }) {
                             </Button>
                             <Button
                                 variant="danger"
-                                onClick={() => props.delete(props.id)}
+                                onClick={() => dispatch(DeleteTask())}
                             >
                                 Delete
                             </Button>
