@@ -4,6 +4,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     OnOff: false,
     AddTask:false,
+    isEditing:false,
+    Editing:false,
 }
 
 const ContextSlice = createSlice({
@@ -19,10 +21,20 @@ const ContextSlice = createSlice({
             const { data } = action.payload;
             let test = state.OnOff !== data ? true : false;
             state.AddTask = test;
+        },
+        IsEditing:(state,action)=>{
+            const { data } = action.payload;
+            let test = state.isEditing !== data ? true : false;
+            state.isEditing = test;
+        },
+        Editing:(state,action) =>{
+            const { data } = action.payload;
+            let test = state.isEditing !== data ? true : false;
+            state.Editing = test;
         }
     },
 });
-export const { SetEditOn,SetAddTaskOn } = ContextSlice.actions;
+export const { SetEditOn,SetAddTaskOn,IsEditing,Editing } = ContextSlice.actions;
 
 export default ContextSlice.reducer;
 

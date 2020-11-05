@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import EditName from "../components/Edit";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styled from "styled-components";
-
+import { useDispatch } from "react-redux";
+import { IsEditing } from "";
 const ControlCard = styled.div``;
-
 function ContextPanel(props) {
-    //
+    const dispatch = useDispatch()
     const [isEditing, setIsEditing] = useState(false);
     const Edit = EditName({ props, setIsEditing });
 
@@ -35,7 +35,7 @@ function ContextPanel(props) {
                 </Card.Header>
             </Link>
             <Card.Body
-                onClick={() => setIsEditing(true)}
+                onClick={() => dispatch(IsEditing({data: true}))}
                 style={{
                     cursor: "pointer",
                     backgroundColor: `${

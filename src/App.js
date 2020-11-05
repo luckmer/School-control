@@ -12,7 +12,6 @@ import {useSelector} from "react-redux";
 
 function App() {
     const location = useLocation();
-
     const state = useSelector(state => state.colorMode.mode);
 
     return (
