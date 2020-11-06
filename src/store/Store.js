@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState } from "react";
 import { nanoid } from "nanoid";
 
 export const StoreContext = createContext();
@@ -31,14 +31,7 @@ export default ({ children }) => {
         DETAILS: [Detail, setDetail],
     };
 
-    useEffect(() => {
-        const store = JSON.parse(localStorage.getItem("DATAContext"));
-        if (store) setTable(store);
-    }, []);
 
-    useEffect(() => {
-        localStorage.setItem("DATAContext", JSON.stringify(table));
-    }, [table]);
 
     return (
         <StoreContext.Provider value={store}>{children}</StoreContext.Provider>
