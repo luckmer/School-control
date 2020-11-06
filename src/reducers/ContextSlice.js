@@ -29,7 +29,7 @@ const ContextSlice = createSlice({
         },
         Editing:(state,action) =>{
             const { data } = action.payload;
-            let test = state.isEditing !== data ? true : false;
+            let test = state.Editing !== data ? true : false;
             state.Editing = test;
         }
     },

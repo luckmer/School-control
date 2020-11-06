@@ -10,7 +10,6 @@ const DarkModeSlice = createSlice({
     initialState,
     reducers:{
         ToggleMode:(state,action)=>{
-            const { data } = action.payload;
             let Color = state.mode ==="light" ? "dark" : "light"
             state.mode = Color
         },
