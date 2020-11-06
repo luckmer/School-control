@@ -10,18 +10,17 @@ import { Container, Cards, Finder } from "../styles/LandingStyle";
 import { useSelector } from "react-redux";
 function LandingPage()
 {
-    const state = useSelector(state => state.CreateNewTaskSlice.Data);
-    const Mapping = state.map(({ data }) => data);
+    const state = useSelector(state => state.CreateNewTaskSlice.filteredData);
     const [LimitControl] = useState(8);
     const [finder, setFinder] = useState({ filterMark: "", filterSubject: "" });
-    const { Delete, Edit, find } = DeleteEdit();
+    const {  find } = DeleteEdit();
 
     const { filterMark, filterSubject } = finder;
     const {  paginate, page } = PaginatingControl({
         LimitControl,
         find,
     });
-    const test = find.map(({ Mark }) => Mark);
+    const test = state.map(({ Mark }) => Mark);
     const filteredData = [...new Set(test)];
 
     const handleChange = (e) => {
@@ -55,7 +54,7 @@ function LandingPage()
                 </label>
             </Finder>
             <Cards>
-                {Mapping.map(
+                {state.map(
                     ({ id, Subject, Teacher, Mark, Description }) => (
                         <Context
                             id={id}
@@ -64,8 +63,6 @@ function LandingPage()
                             mark={Mark}
                             description={Description}
                             key={id}
-                            delete={Delete}
-                            Edit={Edit}
                         />
                     )
                 )}
