@@ -1,15 +1,19 @@
 import { useContext, useEffect } from "react";
 import { StoreContext } from "../store/Store";
-
-export default function NavFilter(finder, test) {
+import { useSelector } from "react-redux";
+import { FilterData } from "../reducers/CreateNewTaskSlice";
+import { useDispatch } from "react-redux";
+export default function NavFilter(finder)
+{
+    const dispatch = useDispatch()
     const {
         DATA: [table, setTable],
         SOLUTION: [, setSolution],
     } = useContext(StoreContext);
 
+    const state = useSelector(state => state.CreateNewTaskSlice.Data);
     useEffect(() => {
-        let filterS = table.data.slice();
-
+        let filterS = state.slice();
         if (finder.filterMark) {
             filterS = filterS.filter((item) =>
                 item.Mark.toLowerCase().includes(
@@ -25,7 +29,6 @@ export default function NavFilter(finder, test) {
                 )
             );
         }
-
-        setSolution({ find: filterS });
-    }, [finder, setTable, table.data, setSolution, test]);
+        dispatch(FilterData({data: filterS}))
+    }, [table,setTable,setSolution,dispatch,finder.filterMark,state,finder.filterSubject]);
 }
