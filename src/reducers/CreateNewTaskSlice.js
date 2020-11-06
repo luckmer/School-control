@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     Data: [],
-    filteredData:[]
+    filteredData: [],
+    Context:[]
 }
 const CreateNewTaskSlice = createSlice({
     name: "CreateNewTaskSlice",
@@ -25,11 +26,11 @@ const CreateNewTaskSlice = createSlice({
         },
         EditTask:(state,action)=>{
             const { id, newContext } = action.payload;
-            const paymentId = state.Data.find(({data})=>data.id === id)
+            const paymentId = state.Data.find((item)=>item.id === id)
             if (paymentId) {
-                paymentId.data = newContext
+                state.filteredData = newContext
             }
-        }
+        },
     },
 });
 

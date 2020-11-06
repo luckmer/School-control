@@ -19,7 +19,7 @@ const ContextSlice = createSlice({
         },
         SetAddTaskOn:(state,action)=>{
             const { data } = action.payload;
-            let test = state.OnOff !== data ? true : false;
+            let test = state.AddTask !== data ? true : false;
             state.AddTask = test;
         },
         IsEditing:(state,action)=>{
