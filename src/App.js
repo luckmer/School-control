@@ -4,7 +4,6 @@ import { routes } from "./routes";
 import { Store } from "./Imports/Index";
 import NavBar from "./components/NavBar";
 import { ThemeProvider } from "styled-components";
-import DarkMode from "./hooks/DarkMode";
 import Box from "./styles/Box";
 
 
