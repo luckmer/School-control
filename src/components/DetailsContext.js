@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import EditName from "../components/Edit";
 import styled from "styled-components";
 import { color, navModeView } from "../styles/Box";
+import { useDispatch,useSelector } from "react-redux";
+import { Editing } from "../reducers/ContextSlice";
+
 const Container = styled.div`
     color: ${color};
     width: 100%;
@@ -34,13 +37,18 @@ const Description = styled.div`
     background-color: ${navModeView};
 `;
 
-function DetailsContext(props) {
-    const [isEditing, setIsEditing] = useState(false);
-    const Edit = EditName({ props, setIsEditing });
+
+function DetailsContext(props)
+{
+    const dispatch = useDispatch();
+    const state = useSelector(state => state.ContextSlice.Editing);
+    console.log(state)
+
+    const Edit = EditName({ props });
 
     return (
         <Container>
-            {isEditing ? (
+            {state ? (
                 Edit
             ) : (
                 <Card>
@@ -59,7 +67,7 @@ function DetailsContext(props) {
                         <h5>Mark {props.mark}</h5>
                     </Header>
                     <small>Click to edit</small>
-                    <Description onClick={() => setIsEditing(true)}>
+                    <Description onClick={() => dispatch(Editing({data: true}))}>
                         <h4>
                             <label> description {props.description}</label>
                         </h4>

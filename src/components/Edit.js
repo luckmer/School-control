@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
 import { Button } from "react-bootstrap";
-import {
-    Context,
-    Header,
-    TextAreaContext,
-    Buttons,
-    Test,
-    Card,
-} from "../styles/AddTaskStyle";
+import{
+    Context, Header, TextAreaContext, Buttons, Test, Card
+}from "../styles/AddTaskStyle";
 import { useForm } from "react-hook-form";
 import { useDispatch  } from "react-redux";
 import { DeleteTask } from "../reducers/CreateNewTaskSlice";
+import { EditTask } from "../reducers/CreateNewTaskSlice";
 const initialState = {
     id: nanoid(),
     Subject: "",
@@ -19,16 +15,15 @@ const initialState = {
     Mark: "",
     Description: "",
 };
-
-function EditName({ props, setIsEditing }) {
+function EditName({ props, IsEditing }){
     const dispatch = useDispatch()
     const [newName, setNewName] = useState(initialState);
     const { Subject, Teacher, Mark, Description } = newName;
     const { errors, handleSubmit, register } = useForm();
 
     const handleUpload = () => {
-        props.Edit(props.id, newName);
-        setIsEditing(false);
+        dispatch(EditTask({id : props.id , newContext : newName}))
+        dispatch(IsEditing(false))
         setNewName({
             Subject: "",
             Teacher: "",
@@ -49,7 +44,7 @@ function EditName({ props, setIsEditing }) {
                     <div>
                         <Header>
                             <h4>Add new card</h4>
-                            <button onClick={() => setIsEditing(false)}>
+                            <button onClick={() => dispatch(IsEditing({data: true}))}>
                                 X
                             </button>
                         </Header>
@@ -112,7 +107,7 @@ function EditName({ props, setIsEditing }) {
                             </Button>
                             <Button
                                 variant="secondary"
-                                onClick={() => setIsEditing(false)}
+                                onClick={() => dispatch(IsEditing({data: true}))}
                             >
                                 cancel
                             </Button>

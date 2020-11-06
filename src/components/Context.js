@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React  from "react";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import EditName from "../components/Edit";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styled from "styled-components";
-import { useDispatch } from "react-redux";
-import { IsEditing } from "";
+import { useDispatch,useSelector } from "react-redux";
+import { IsEditing } from "../reducers/ContextSlice";
 const ControlCard = styled.div``;
+
 function ContextPanel(props) {
     const dispatch = useDispatch()
-    const [isEditing, setIsEditing] = useState(false);
-    const Edit = EditName({ props, setIsEditing });
+    const isEditing = useSelector(state => state.ContextSlice.isEditing);
+    const Edit = EditName({ props, IsEditing });
 
     const View = (
         <Card

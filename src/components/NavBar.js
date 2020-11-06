@@ -6,13 +6,12 @@ import { Link } from "react-router-dom";
 import { useDispatch,useSelector } from "react-redux";
 import { SetEditOn,SetAddTaskOn } from "../reducers/ContextSlice";
 import {ToggleMode} from "../reducers/DarkModeSlice";
-function NavBar({ toggleChange })
+function NavBar( )
 {
     const find = useSelector(state => state.ContextSlice.OnOff)
     const OpenNewTask = useSelector(state => state.ContextSlice.AddTask)
-    const state = useSelector(state => state);
     const dispatch = useDispatch();
-    const [add, setAdd] = useState(false);
+    const [ setAdd] = useState(false);
 
     return (
         <>

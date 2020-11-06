@@ -87,8 +87,7 @@ function AddTask({ add, setAdd }){
                                     </Button>
                                     <Button
                                         variant="secondary"
-                                        onClick={() => dispatch(SetAddTaskOn({data: true}))}
-                                    >
+                                        onClick={() => dispatch(SetAddTaskOn({data: true}))}>
                                         cancel
                                     </Button>
                                 </Buttons>
