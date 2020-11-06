@@ -14,8 +14,8 @@ const Container = styled.div`
 function Details({ match }){
     const { id } = match.params;
     const ApiDataView = useSelector(state =>
-        state.CreateNewTaskSlice.Data.find(item => item.id === id));
-
+        state.CreateNewTaskSlice.Data.find(({id})=>id === id));
+        console.log(ApiDataView)
     const { Subject, Teacher, Mark, Description } = ApiDataView;
     
     return (

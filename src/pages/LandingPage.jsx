@@ -11,6 +11,8 @@ import { useSelector } from "react-redux";
 function LandingPage()
 {
     const state = useSelector(state => state.CreateNewTaskSlice.filteredData);
+    const dsa = useSelector(state => state.CreateNewTaskSlice);
+    console.log(dsa)
     const [LimitControl] = useState(8);
     const [finder, setFinder] = useState({ filterMark: "", filterSubject: "" });
     const {  find } = DeleteEdit();
@@ -20,7 +22,8 @@ function LandingPage()
         LimitControl,
         find,
     });
-    const test = state.map(({ Mark }) => Mark);
+    const test = state.map(({ Mark }) => Mark).toString();
+
     const filteredData = [...new Set(test)];
 
     const handleChange = (e) => {
