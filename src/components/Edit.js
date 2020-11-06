@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch  } from "react-redux";
 import { DeleteTask } from "../reducers/CreateNewTaskSlice";
 import { EditTask } from "../reducers/CreateNewTaskSlice";
+import {IsEditing } from "../reducers/ContextSlice"
 const initialState = {
     id: nanoid(),
     Subject: "",
@@ -15,7 +16,7 @@ const initialState = {
     Mark: "",
     Description: "",
 };
-function EditName({ props, IsEditing }){
+function EditName({ props }){
     const dispatch = useDispatch()
     const [newName, setNewName] = useState(initialState);
     const { Subject, Teacher, Mark, Description } = newName;
