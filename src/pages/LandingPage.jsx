@@ -3,7 +3,6 @@ import {
     PaginatingControl,
     Paginating,
     NavFilter,
-    DeleteEdit,
     Context,
 } from "../Imports/Index";
 import { Container, Cards, Finder } from "../styles/LandingStyle";
@@ -11,16 +10,13 @@ import { useSelector } from "react-redux";
 function LandingPage()
 {
     const state = useSelector(state => state.CreateNewTaskSlice.filteredData);
-    const dsa = useSelector(state => state.CreateNewTaskSlice);
-    console.log(dsa)
     const [LimitControl] = useState(8);
     const [finder, setFinder] = useState({ filterMark: "", filterSubject: "" });
-    const {  find } = DeleteEdit();
 
     const { filterMark, filterSubject } = finder;
-    const {  paginate, page } = PaginatingControl({
+    const {  paginate, page,ContextView } = PaginatingControl({
         LimitControl,
-        find,
+        state,
     });
     const test = state.map(({ Mark }) => Mark).toString();
 
@@ -31,7 +27,6 @@ function LandingPage()
     };
 
     NavFilter(finder);
-
     return (
         <Container>
             <Finder page={page}>
@@ -57,7 +52,7 @@ function LandingPage()
                 </label>
             </Finder>
             <Cards>
-                {state.map(
+                {ContextView.map(
                     ({ id, Subject, Teacher, Mark, Description }) => (
                         <Context
                             id={id}
@@ -73,7 +68,7 @@ function LandingPage()
             <Paginating
                 paginate={paginate}
                 LimitControl={LimitControl}
-                totalPosts={find.length}
+                totalPosts={state.length}
             />
         </Container>
     );
