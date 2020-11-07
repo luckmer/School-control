@@ -44,7 +44,7 @@ function EditName({ props }){
                 <Card>
                     <div>
                         <Header>
-                            <h4>Add new card</h4>
+                            <h4>Edit Card</h4>
                             <button onClick={() => dispatch(IsEditing({data: true}))}>
                                 X
                             </button>
