@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     Data: [],
     filteredData: [],
-    Context:[]
+    Context:[],
 }
 const CreateNewTaskSlice = createSlice({
     name: "CreateNewTaskSlice",
@@ -31,6 +31,7 @@ const CreateNewTaskSlice = createSlice({
                 state.filteredData = newContext
             }
         },
+
     },
 });
 
