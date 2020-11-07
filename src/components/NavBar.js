@@ -39,16 +39,6 @@ function NavBar( )
                             </ul>
                         </div>
                         <div>
-                            <ul>
-                                <li>
-                                    <Link
-                                        to="/"
-                                        onClick={() => dispatch(SetEditOn({data : true}))}
-                                    >
-                                        Notes
-                                    </Link>
-                                </li>
-                            </ul>
                             <ul onClick={() => dispatch(SetEditOn({data : true}))}>
                                 <li onClick={() => dispatch(ToggleMode({data : "dark"}))}>Dark</li>
                             </ul>

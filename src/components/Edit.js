@@ -16,7 +16,9 @@ const initialState = {
     Mark: "",
     Description: "",
 };
+
 function EditName({ props }){
+
     const dispatch = useDispatch()
     const [newName, setNewName] = useState(initialState);
     const { Subject, Teacher, Mark, Description } = newName;

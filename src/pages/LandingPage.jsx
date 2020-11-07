@@ -14,7 +14,7 @@ function LandingPage()
     const [finder, setFinder] = useState({ filterMark: "", filterSubject: "" });
 
     const { filterMark, filterSubject } = finder;
-    const {  paginate, page,ContextView } = PaginatingControl({
+    const { paginate, page, ContextView } = PaginatingControl({
         LimitControl,
         state,
     });
@@ -27,6 +27,7 @@ function LandingPage()
     };
 
     NavFilter(finder);
+
     return (
         <Container>
             <Finder page={page}>
