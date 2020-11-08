@@ -21,6 +21,7 @@ export function TaskDataControl(){
     };
 
     const handleUpload = () => {
+       // const { data } = table;
         const Next = {
             id: nanoid(),
             Subject: Subject,
