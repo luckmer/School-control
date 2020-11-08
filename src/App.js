@@ -1,7 +1,6 @@
 import React from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { routes } from "./routes";
-import { Store } from "./Imports/Index";
 import NavBar from "./components/NavBar";
 import { ThemeProvider } from "styled-components";
 import Box from "./styles/Box";
@@ -15,7 +14,6 @@ function App() {
 
     return (
         <ThemeProvider theme={{ mode: state }}>
-            <Store>
                 <Box>
                     <NavBar type={state}  />
                     <Switch location={location} key={location.pathname}>
@@ -29,7 +27,6 @@ function App() {
                         ))}
                     </Switch>
                 </Box>
-            </Store>
         </ThemeProvider>
     );
 }
