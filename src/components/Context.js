@@ -3,10 +3,8 @@ import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import EditName from "../components/Edit";
 import "bootstrap/dist/css/bootstrap.min.css";
-import styled from "styled-components";
 import { useDispatch,useSelector } from "react-redux";
 import { IsEditing } from "../reducers/ContextSlice";
-const ControlCard = styled.div``;
 
 function ContextPanel(props) {
     const dispatch = useDispatch()
@@ -81,7 +79,7 @@ function ContextPanel(props) {
         </Card>
     );
 
-    return <ControlCard>{isEditing ? Edit : View}</ControlCard>;
+    return <div>{isEditing ? Edit : View}</div>;
 }
 
 export default ContextPanel;

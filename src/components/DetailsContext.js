@@ -42,12 +42,11 @@ function DetailsContext(props)
 {
     const dispatch = useDispatch();
     const state = useSelector(state => state.ContextSlice.Editing);
-    console.log(state)
 
     const Edit = EditName({ props });
 
     return (
-        <Container>
+        <Container >
             {state ? (
                 Edit
             ) : (

@@ -9,24 +9,25 @@ import { useDispatch  } from "react-redux";
 import { DeleteTask } from "../reducers/CreateNewTaskSlice";
 import { EditTask } from "../reducers/CreateNewTaskSlice";
 import {IsEditing } from "../reducers/ContextSlice"
-const initialState = {
-    id: nanoid(),
-    Subject: "",
-    Teacher: "",
-    Mark: "",
-    Description: "",
-};
 
-function EditName({ props }){
-
+function EditName({props}){
+    const initialState = {
+        id: props.id,
+        Subject: "",
+        Teacher: "",
+        Mark: "",
+        Description: "",
+    };
     const dispatch = useDispatch()
     const [newName, setNewName] = useState(initialState);
     const { Subject, Teacher, Mark, Description } = newName;
     const { errors, handleSubmit, register } = useForm();
 
-    const handleUpload = () => {
-        dispatch(EditTask({id : props.id , newContext : newName}))
+
+
+    const handleUpload = () =>{
         dispatch(IsEditing(false))
+        dispatch(EditTask({id : props.id , newContext : newName}))
         setNewName({
             Subject: "",
             Teacher: "",
@@ -46,7 +47,7 @@ function EditName({ props }){
                 <Card>
                     <div>
                         <Header>
-                            <h4>Edit Card</h4>
+                            <h4>Add new card</h4>
                             <button onClick={() => dispatch(IsEditing({data: true}))}>
                                 X
                             </button>
