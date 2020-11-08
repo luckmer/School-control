@@ -12,11 +12,12 @@ const Container = styled.div`
 `;
 
 function Details({ match }){
-    const { id } = match.params;
+    const test = match.params.id
+
     const ApiDataView = useSelector(state =>
-        state.CreateNewTaskSlice.Data.find(({id})=>id === id));
-        console.log(ApiDataView)
-    const { Subject, Teacher, Mark, Description } = ApiDataView;
+        state.CreateNewTaskSlice.Data.find((data)=>data.id === test));
+
+    const { Subject, Teacher, Mark, Description, id } = ApiDataView;
     
     return (
         <Container>

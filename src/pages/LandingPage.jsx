@@ -12,9 +12,9 @@ function LandingPage()
     const state = useSelector(state => state.CreateNewTaskSlice.filteredData);
     const [LimitControl] = useState(8);
     const [finder, setFinder] = useState({ filterMark: "", filterSubject: "" });
-
     const { filterMark, filterSubject } = finder;
-    const { paginate, page, ContextView } = PaginatingControl({
+
+    const {  paginate, page } = PaginatingControl({
         LimitControl,
         state,
     });
@@ -53,7 +53,7 @@ function LandingPage()
                 </label>
             </Finder>
             <Cards>
-                {ContextView.map(
+                {state.map(
                     ({ id, Subject, Teacher, Mark, Description }) => (
                         <Context
                             id={id}
