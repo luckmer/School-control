@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     Data: [],
     filteredData: [],
-    Context:[],
+    Context:[]
 }
 const CreateNewTaskSlice = createSlice({
     name: "CreateNewTaskSlice",
@@ -31,12 +31,8 @@ const CreateNewTaskSlice = createSlice({
                 state.filteredData = newContext
             }
         },
-
     },
 });
 
-export const { CreateTask,DeleteTask,EditTask,FilterData,FilterContext } = CreateNewTaskSlice.actions;
+export const { CreateTask,DeleteTask,EditTask,FilterData } = CreateNewTaskSlice.actions;
 export default CreateNewTaskSlice.reducer;
-
-
-
