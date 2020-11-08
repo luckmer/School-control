@@ -4,7 +4,6 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router } from "react-router-dom";
 import GlobalStyle from "./styles/GlobalStyle";
-//import { Store } from "./Imports/Index";
 
 import { Provider } from "react-redux";
 import Store from "./utils/Store";
