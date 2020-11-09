@@ -14,9 +14,14 @@ const CreateNewTaskSlice = createSlice({
                 state.Data.push(action.payload)
             },
             prepare: (data) => {
-                return { payload: data }
+                return {
+                    payload: {
+                        data
+                    }
+                }
             },
         },
+
         DeleteTask: (state) =>{
             state.Data.splice(state, 1);
         },
@@ -25,10 +30,12 @@ const CreateNewTaskSlice = createSlice({
             state.filteredData = data
         },
         EditTask:(state,action)=>{
-            const { id, newContext } = action.payload;
-            const paymentId = state.Data.find((item)=>item.id === id)
-            if (paymentId) {
-                state.filteredData = newContext
+            const { id, newContext } = action.payload 
+            let ApiControl = state.Data.find(({ data }) => data.data.id === id);
+            if (ApiControl) {
+                let test = ApiControl.data.data = newContext
+
+                console.log(test)
             }
         },
     },
