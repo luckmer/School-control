@@ -9,7 +9,8 @@ import { Container, Cards, Finder } from "../styles/LandingStyle";
 import { useSelector } from "react-redux";
 function LandingPage()
 {
-    const state = useSelector(state => state.CreateNewTaskSlice.filteredData);
+    const state = useSelector(state => state.CreateNewTaskSlice.Data);
+    const Mapping = state.map(({ data }) => data.data);
     const [LimitControl] = useState(8);
     const [finder, setFinder] = useState({ filterMark: "", filterSubject: "" });
     const { filterMark, filterSubject } = finder;
@@ -53,16 +54,17 @@ function LandingPage()
                 </label>
             </Finder>
             <Cards>
-                {state.map(
+                {Mapping.map(
                     ({ id, Subject, Teacher, Mark, Description }) => (
-                        <Context
-                            id={id}
-                            subject={Subject}
-                            teacher={Teacher}
-                            mark={Mark}
-                            description={Description}
-                            key={id}
-                        />
+                        <div key ={id}>
+                            <Context
+                                id={id}
+                                subject={Subject}
+                                teacher={Teacher}
+                                mark={Mark}
+                                description={Description}
+                            />
+                        </div>
                     )
                 )}
             </Cards>
