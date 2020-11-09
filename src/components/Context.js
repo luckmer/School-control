@@ -1,46 +1,49 @@
-import React  from "react";
+import React,{useState}  from "react";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import EditName from "../components/Edit";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useDispatch,useSelector } from "react-redux";
 import { IsEditing } from "../reducers/ContextSlice";
 
-function ContextPanel(props) {
-    const dispatch = useDispatch()
-    const isEditing = useSelector(state => state.ContextSlice.isEditing);
-    const Edit = EditName({ props, IsEditing });
+function ContextPanel({id , subject , teacher,mark,description}) {
+    const [edit, setEdit] = useState(false);
+
+    const handleClick = () =>{
+        setEdit(!edit)
+    }
+    const Edit = EditName({ id, subject, teacher, mark, description, IsEditing,edit,setEdit,handleClick });
+    
 
     const View = (
         <Card
             border="light "
             style={{ boxShadow: " -6px 1px 11px rgba(0,0,0,0.25)" }}
         >
-            <Link to={`/details/${props.id}`}>
+            <Link to={`/details/${id}`}>
                 <Card.Header
                     style={{
                         boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                         backgroundColor: `${
-                            props.mark >= 3
+                            mark >= 3
                                 ? " #28a745"
-                                : "#28a745" || props.mark === 0
+                                : "#28a745" || mark === 0
                                 ? "#6c757d"
                                 : "#6c757d"
                         }`,
                         color: "white",
                     }}
                 >
-                    <label htmlFor={props.id}>{props.subject}</label>
+                    <label htmlFor={id}>{subject}</label>
                 </Card.Header>
             </Link>
             <Card.Body
-                onClick={() => dispatch(IsEditing({data: true}))}
+                onClick={() => handleClick(id)}
                 style={{
                     cursor: "pointer",
                     backgroundColor: `${
-                        props.mark >= 3
+                        mark >= 3
                             ? " #28a745"
-                            : "#28a745" || props.mark === 0
+                            : "#28a745" ||mark === 0
                             ? "#6c757d"
                             : "#6c757d"
                     }`,
@@ -48,7 +51,7 @@ function ContextPanel(props) {
                 }}
             >
                 <Card.Title>
-                    <label htmlFor={props.id}>{props.teacher}</label>
+                    <label htmlFor={id}>{teacher}</label>
                 </Card.Title>
                 <Card.Text
                     style={{
@@ -58,15 +61,15 @@ function ContextPanel(props) {
                         width: "98%",
                     }}
                 >
-                    <label htmlFor={props.id}>{props.description}</label>
+                    <label htmlFor={description}>{description}</label>
                 </Card.Text>
             </Card.Body>
             <Card.Header
                 style={{
                     backgroundColor: `${
-                        props.mark >= 3
+                        mark >= 3
                             ? " #28a745"
-                            : "#28a745" || props.mark === 0
+                            : "#28a745" || mark === 0
                             ? "#6c757d"
                             : "#6c757d"
                     }`,
@@ -74,12 +77,12 @@ function ContextPanel(props) {
                     boxShadow: "rgba(0, 0, 0, 0.25) 0px -1px 1px",
                 }}
             >
-                <label htmlFor={props.id}>{props.mark}</label>
+                <label htmlFor={id}>{mark}</label>
             </Card.Header>
         </Card>
     );
 
-    return <div>{isEditing ? Edit : View}</div>;
+    return !edit ? View : Edit
 }
 
 export default ContextPanel;

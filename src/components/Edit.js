@@ -1,18 +1,15 @@
 import React, { useState } from "react";
-import { nanoid } from "nanoid";
 import { Button } from "react-bootstrap";
 import{
     Context, Header, TextAreaContext, Buttons, Test, Card
 }from "../styles/AddTaskStyle";
 import { useForm } from "react-hook-form";
 import { useDispatch  } from "react-redux";
-import { DeleteTask } from "../reducers/CreateNewTaskSlice";
 import { EditTask } from "../reducers/CreateNewTaskSlice";
-import {IsEditing } from "../reducers/ContextSlice"
 
-function EditName({props}){
+function EditName({id ,handleClick }){
     const initialState = {
-        id: props.id,
+        id: id,
         Subject: "",
         Teacher: "",
         Mark: "",
@@ -24,16 +21,9 @@ function EditName({props}){
     const { errors, handleSubmit, register } = useForm();
 
 
-
     const handleUpload = () =>{
-        dispatch(IsEditing(false))
-        dispatch(EditTask({id : props.id , newContext : newName}))
-        setNewName({
-            Subject: "",
-            Teacher: "",
-            Mark: "",
-            Description: "",
-        });
+        dispatch(EditTask({ id: id, newContext: newName }))
+        handleClick()
     };
 
     const handleChange = (e) => {
@@ -41,14 +31,14 @@ function EditName({props}){
     };
 
     return (
-        <>
+        <div>
             <Test />
             <Context onSubmit={handleSubmit(handleUpload)}>
                 <Card>
                     <div>
                         <Header>
                             <h4>Add new card</h4>
-                            <button onClick={() => dispatch(IsEditing({data: true}))}>
+                            <button onClick={() => handleClick(id)}>
                                 X
                             </button>
                         </Header>
@@ -111,13 +101,13 @@ function EditName({props}){
                             </Button>
                             <Button
                                 variant="secondary"
-                                onClick={() => dispatch(IsEditing({data: true}))}
+                                onClick={() => handleClick(id)}
                             >
                                 cancel
                             </Button>
                             <Button
                                 variant="danger"
-                                onClick={() => dispatch(DeleteTask())}
+                                onClick={() => handleClick(id)}
                             >
                                 Delete
                             </Button>
@@ -125,7 +115,7 @@ function EditName({props}){
                     </TextAreaContext>
                 </Card>
             </Context>
-        </>
+        </div>
     );
 }
 export default EditName;
