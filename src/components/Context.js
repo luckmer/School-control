@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import EditName from "../components/Edit";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { IsEditing } from "../reducers/ContextSlice";
+import { IsEditing } from "../actions/SetEditOn";
 
 const  ContextPanel = ({id , subject , teacher,mark,description}) =>{
     const [edit, setEdit] = useState(false);

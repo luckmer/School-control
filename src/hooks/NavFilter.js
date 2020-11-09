@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { FilterData } from "../reducers/CreateNewTaskSlice";
+import { FilterData } from "../actions/CreateTask";
 import { useDispatch } from "react-redux";
 
 const  NavFilter = (finder) =>{

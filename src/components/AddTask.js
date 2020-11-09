@@ -4,7 +4,7 @@ import { TaskDataControl } from "../hooks/TaskDataControl";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import {useDispatch} from "react-redux";
-import { SetAddTaskOn } from "../reducers/ContextSlice";
+import { SetAddTaskOn } from "../actions/SetEditOn";
 
 const AddTask = ({ add, setAdd }) => {
 

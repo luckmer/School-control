@@ -4,8 +4,8 @@ import { Container, Mobile, Context, Button } from "../styles/Nav";
 import { Link } from "react-router-dom";
 
 import { useDispatch,useSelector } from "react-redux";
-import { SetEditOn,SetAddTaskOn } from "../reducers/ContextSlice";
-import { ToggleMode } from "../reducers/DarkModeSlice";
+import { SetEditOn, SetAddTaskOn } from "../actions/SetEditOn";
+import { ToggleMode } from "../actions/ToggleMode";
 
 const  NavBar = ( )=>{
     

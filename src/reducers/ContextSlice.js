@@ -8,7 +8,7 @@ const initialState = {
     Editing:false,
 }
 
-const ContextSlice = createSlice({
+export const ContextSlice = createSlice({
     name: "ContextSlice",
     initialState,
     reducers: {
@@ -34,7 +34,5 @@ const ContextSlice = createSlice({
         }
     },
 });
-export const { SetEditOn,SetAddTaskOn,IsEditing,Editing } = ContextSlice.actions;
-
 export default ContextSlice.reducer;
 

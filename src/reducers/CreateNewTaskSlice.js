@@ -5,7 +5,7 @@ const initialState = {
     filteredData: [],
     Context:[]
 }
-const CreateNewTaskSlice = createSlice({
+export const CreateNewTaskSlice = createSlice({
     name: "CreateNewTaskSlice",
     initialState,
     reducers: {
@@ -34,12 +34,9 @@ const CreateNewTaskSlice = createSlice({
             let ApiControl = state.Data.find(({ data }) => data.data.id === id);
             if (ApiControl) {
                 let test = ApiControl.data.data = newContext
-
-                console.log(test)
             }
         },
     },
 });
 
-export const { CreateTask,DeleteTask,EditTask,FilterData } = CreateNewTaskSlice.actions;
 export default CreateNewTaskSlice.reducer;

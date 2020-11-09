@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { nanoid } from "nanoid";
-import { CreateTask } from "../reducers/CreateNewTaskSlice";
+import { CreateTask } from "../actions/CreateTask";
 import { useDispatch } from "react-redux";
 
 export const TaskDataControl = () => {

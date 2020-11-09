@@ -5,7 +5,7 @@ import{
 }from "../styles/AddTaskStyle";
 import { useForm } from "react-hook-form";
 import { useDispatch  } from "react-redux";
-import { EditTask } from "../reducers/CreateNewTaskSlice";
+import { EditTask } from "../actions/CreateTask";
 
 const  EditName = ({id ,handleClick }) => {
 

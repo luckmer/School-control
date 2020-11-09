@@ -3,7 +3,7 @@ import EditName from "../components/Edit";
 import styled from "styled-components";
 import { color, navModeView } from "../styles/Box";
 import { useDispatch,useSelector } from "react-redux";
-import { Editing } from "../reducers/ContextSlice";
+import { Editing } from "../actions/SetEditOn";
 
 const Container = styled.div`
     color: ${color};
