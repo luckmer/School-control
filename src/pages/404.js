@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+
 const Container = styled.div`
     width: 100vw;
     height: 100vh;
@@ -10,7 +11,7 @@ const Container = styled.div`
     flex-direction: column;
 `;
 
-function NotFound() {
+const  NotFound = ()=> {
     return (
         <Container>
             <h1>Not Found</h1>

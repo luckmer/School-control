@@ -38,8 +38,9 @@ const Description = styled.div`
 `;
 
 
-function DetailsContext(props)
-{
+const DetailsContext = (props) =>{
+    
+    
     const dispatch = useDispatch();
     const state = useSelector(state => state.ContextSlice.Editing);
 

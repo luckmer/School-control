@@ -24,7 +24,8 @@ const Div = styled.div`
         }
     }
 `;
-export default function Paginating({ paginate, LimitControl, totalPosts }) {
+const Paginating = ({ paginate, LimitControl, totalPosts }) =>{
+    
     const pageNumbers = [];
     const PageLength = Math.ceil(totalPosts / LimitControl);
     for (let i = 1; i <= PageLength; i++) {
@@ -42,4 +43,6 @@ export default function Paginating({ paginate, LimitControl, totalPosts }) {
             </Div>
         </Container>
     );
-}
+};
+
+export default Paginating;

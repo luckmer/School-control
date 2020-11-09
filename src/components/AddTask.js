@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import {useDispatch} from "react-redux";
 import { SetAddTaskOn } from "../reducers/ContextSlice";
 
-function AddTask({ add, setAdd }){
+const AddTask = ({ add, setAdd }) => {
 
     const dispatch = useDispatch();
     const { handleUpload, handleChange, state } = TaskDataControl({add,setAdd});

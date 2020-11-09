@@ -7,10 +7,12 @@ import {
 } from "../Imports/Index";
 import { Container, Cards, Finder } from "../styles/LandingStyle";
 import { useSelector } from "react-redux";
-function LandingPage()
-{
+
+const LandingPage = () =>{
+    
     const state = useSelector(state => state.CreateNewTaskSlice.Data);
     const Mapping = state.map(({ data }) => data.data);
+
     const [LimitControl] = useState(8);
     const [finder, setFinder] = useState({ filterMark: "", filterSubject: "" });
     const { filterMark, filterSubject } = finder;
@@ -19,6 +21,7 @@ function LandingPage()
         LimitControl,
         state,
     });
+    
     const test = state.map(({ Mark }) => Mark).toString();
 
     const filteredData = [...new Set(test)];

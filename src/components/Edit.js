@@ -7,7 +7,8 @@ import { useForm } from "react-hook-form";
 import { useDispatch  } from "react-redux";
 import { EditTask } from "../reducers/CreateNewTaskSlice";
 
-function EditName({id ,handleClick }){
+const  EditName = ({id ,handleClick }) => {
+
     const initialState = {
         id: id,
         Subject: "",

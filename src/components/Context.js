@@ -5,7 +5,7 @@ import EditName from "../components/Edit";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { IsEditing } from "../reducers/ContextSlice";
 
-function ContextPanel({id , subject , teacher,mark,description}) {
+const  ContextPanel = ({id , subject , teacher,mark,description}) =>{
     const [edit, setEdit] = useState(false);
 
     const handleClick = () =>{

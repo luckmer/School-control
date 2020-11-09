@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import { CreateTask } from "../reducers/CreateNewTaskSlice";
 import { useDispatch } from "react-redux";
 
-export function TaskDataControl(){
+export const TaskDataControl = () => {
     const initialState = {
         id: nanoid(),
         Subject: "",

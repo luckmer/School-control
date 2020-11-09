@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-export default function PaginatingControl({ LimitControl, state }) {
+const PaginatingControl = ({ LimitControl, state }) =>{
+    
     const [page, setPage] = useState(1);
 
     const Length = page * LimitControl;
@@ -8,4 +9,6 @@ export default function PaginatingControl({ LimitControl, state }) {
     const ContextView = state.slice(Post, Length);
     const paginate = (i) => setPage(i);
     return { ContextView, paginate, page };
-}
+};
+
+export default PaginatingControl;

@@ -11,7 +11,7 @@ const Container = styled.div`
     justify-content: flex-start;
 `;
 
-function Details({ match }){
+const  Details = ({ match }) => {
     const test = match.params.id
 
     const ApiDataView = useSelector(state =>
