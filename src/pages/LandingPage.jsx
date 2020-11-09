@@ -14,12 +14,17 @@ const LandingPage = () =>{
     const Mapping = state.map(({ data }) => data.data);
 
     const [LimitControl] = useState(8);
-    const [finder, setFinder] = useState({ filterMark: "", filterSubject: "" });
-    const { filterMark, filterSubject } = finder;
+    const [finder, setFinder] = useState({
+        filterMark: "", filterSubject: ""
+    });
+    const {
+        filterMark, filterSubject
+    } = finder;
 
-    const {  paginate, page } = PaginatingControl({
-        LimitControl,
-        state,
+    const {
+        ContextView, paginate, page
+    } = PaginatingControl({
+        LimitControl, Mapping
     });
     
     const test = state.map(({ Mark }) => Mark).toString();
@@ -57,7 +62,7 @@ const LandingPage = () =>{
                 </label>
             </Finder>
             <Cards>
-                {Mapping.map(
+                {ContextView.map(
                     ({ id, Subject, Teacher, Mark, Description }) => (
                         <div key ={id}>
                             <Context
