@@ -21,7 +21,6 @@ export function TaskDataControl(){
     };
 
     const handleUpload = () => {
-       // const { data } = table;
         const Next = {
             id: nanoid(),
             Subject: Subject,
@@ -29,7 +28,7 @@ export function TaskDataControl(){
             Mark: Mark,
             Description: Description,
         };
-        dispatch(CreateTask(Next));
+        dispatch(CreateTask({data : Next}));
         setState({
             Subject: "",
             Teacher: "",
