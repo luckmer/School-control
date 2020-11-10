@@ -33,7 +33,7 @@ export const CreateNewTaskSlice = createSlice({
             const { id, newContext } = action.payload 
             let ApiControl = state.Data.find(({ data }) => data.data.id === id);
             if (ApiControl) {
-                let test = ApiControl.data.data = newContext
+                ApiControl.data.data = newContext
             }
         },
     },

@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-    PaginatingControl,
-    Paginating,
-    NavFilter,
-    Context,
-} from "../Imports/Index";
+import {PaginatingControl,Paginating,Context} from "../Imports/Index";
 import { Container, Cards, Finder } from "../styles/LandingStyle";
 import { useSelector } from "react-redux";
 
@@ -13,7 +8,7 @@ const LandingPage = () =>{
     const state = useSelector(state => state.CreateNewTaskSlice.Data);
     const Mapping = state.map(({ data }) => data.data);
 
-    const [LimitControl] = useState(8);
+    const [LimitControl] = useState(2);
     const [finder, setFinder] = useState({
         filterMark: "", filterSubject: ""
     });
@@ -21,13 +16,11 @@ const LandingPage = () =>{
         filterMark, filterSubject
     } = finder;
 
-    const {
-        ContextView, paginate, page
+    const {paginate, page,ContextView
     } = PaginatingControl({
         LimitControl, Mapping
     });
-    
-    const test = state.map(({ Mark }) => Mark).toString();
+    const test = Mapping.map(({ Mark }) => Mark).toString();
 
     const filteredData = [...new Set(test)];
 
@@ -35,7 +28,6 @@ const LandingPage = () =>{
         setFinder({ ...finder, [e.target.name]: e.target.value });
     };
 
-    NavFilter(finder);
 
     return (
         <Container>
@@ -62,19 +54,7 @@ const LandingPage = () =>{
                 </label>
             </Finder>
             <Cards>
-                {ContextView.map(
-                    ({ id, Subject, Teacher, Mark, Description }) => (
-                        <div key ={id}>
-                            <Context
-                                id={id}
-                                subject={Subject}
-                                teacher={Teacher}
-                                mark={Mark}
-                                description={Description}
-                            />
-                        </div>
-                    )
-                )}
+                <Context Mapping ={ContextView} finder ={finder}   />
             </Cards>
             <Paginating
                 paginate={paginate}
