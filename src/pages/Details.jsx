@@ -15,7 +15,7 @@ const  Details = ({ match }) => {
     const test = match.params.id
 
     const ApiDataView = useSelector(state =>
-        state.CreateNewTaskSlice.Data.find((data)=>data.id === test));
+        state.CreateNewTaskSlice.Data.find(({data})=>data.data.id === test));
 
     const { Subject, Teacher, Mark, Description, id } = ApiDataView;
     
