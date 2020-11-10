@@ -1,40 +1,34 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { FilterData } from "../actions/CreateTask";
-import { useDispatch } from "react-redux";
 
-const  NavFilter = (finder) =>{
-
-    const dispatch = useDispatch()
-
-    const state = useSelector(state => state.CreateNewTaskSlice.Data);
+function NavFilter(Mapping, finder, setData)
+{
     useEffect(() =>
     {
-        let filterS = state.slice();
+        let filterS = Mapping.slice();
         if (finder.filterMark) {
-            filterS = filterS.filter((item) =>
-                item.Mark.toLowerCase()
-                    .includes(
-                        finder.filterMark
-                            .toLowerCase()
-                            .trim()
-                    )
+            filterS = filterS.filter((item) => item.Mark
+                .toLowerCase()
+                .includes(
+                    finder.filterMark
+                        .toLowerCase()
+                        .trim()
+                )
             );
         }
 
         if (finder.filterSubject) {
-            filterS = filterS.filter((item) =>
-                item.Subject.toLowerCase()
-                    .includes(
-                        finder.filterSubject
-                            .toLowerCase()
-                            .trim()
-                    )
+            filterS = filterS.filter((item) => item.Subject
+                .toLowerCase()
+                .includes(
+                    finder.filterSubject
+                        .toLowerCase()
+                        .trim()
+                )
             );
         }
-        dispatch(FilterData({ data: filterS }))
-    }, [dispatch, finder.filterMark, state, finder.filterSubject]);
-};
+        setData(filterS);
+    }, [Mapping, finder.filterMark, finder.filterSubject,setData]);
+}
 
 
 export default NavFilter;
