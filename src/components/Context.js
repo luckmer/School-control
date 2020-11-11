@@ -8,7 +8,6 @@ const ContextPanel = ({ finder,Mapping }) =>{
 
     NavFilter(Mapping, finder, setData);
     
-
     return (
         <>
         {data.map(({ id, Subject, Mark,Teacher }) => (

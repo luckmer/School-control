@@ -7,7 +7,7 @@ import { useDispatch,useSelector } from "react-redux";
 import { SetEditOn, SetAddTaskOn } from "../actions/SetEditOn";
 import { ToggleMode } from "../actions/ToggleMode";
 
-const  NavBar = ( )=>{
+const  NavBar = ()=>{
     
     const find = useSelector(state => state.ContextSlice.OnOff)
     const OpenNewTask = useSelector(state => state.ContextSlice.AddTask)
