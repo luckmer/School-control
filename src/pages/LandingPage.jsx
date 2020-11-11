@@ -7,22 +7,31 @@ const LandingPage = () =>{
     
     const state = useSelector(state => state.CreateNewTaskSlice.Data);
     const Mapping = state.map(({ data }) => data.data);
-
+    const test = Mapping.map(({ Mark }) => Mark).toString();
+    const filteredData = [...new Set(test)];
+    
     const [LimitControl] = useState(2);
+    
     const [finder, setFinder] = useState({
-        filterMark: "", filterSubject: ""
+        _filterMark: "",get filterMark()
+        {
+            return this._filterMark;
+        },
+        set filterMark(value)
+        {
+            this._filterMark = value;
+        },
+            filterSubject: ""
     });
-    const {
-        filterMark, filterSubject
-    } = finder;
+    
+    const { filterMark, filterSubject } = finder;
 
     const {paginate, page,ContextView
     } = PaginatingControl({
         LimitControl, Mapping
     });
-    const test = Mapping.map(({ Mark }) => Mark).toString();
+    
 
-    const filteredData = [...new Set(test)];
 
     const handleChange = (e) => {
         setFinder({ ...finder, [e.target.name]: e.target.value });
@@ -66,3 +75,16 @@ const LandingPage = () =>{
 }
 
 export default LandingPage;
+
+
+// const [finder, setFinder] = useState({
+//     filterMark: "", filterSubject: ""
+// });
+// const {
+//     filterMark, filterSubject
+// } = finder;
+
+// const {paginate, page,ContextView
+// } = PaginatingControl({
+//     LimitControl, Mapping
+// });
