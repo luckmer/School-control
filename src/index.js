@@ -7,9 +7,10 @@ import GlobalStyle from "./styles/GlobalStyle";
 
 import { Provider } from "react-redux";
 import Store from "./utils/Store";
+
 ReactDOM.render(
     <React.StrictMode>
-        <Provider store ={Store}>
+        <Provider store = {Store}>
             <Router>
                 <GlobalStyle />
                 <App />

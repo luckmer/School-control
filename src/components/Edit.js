@@ -5,7 +5,7 @@ import{
 }from "../styles/AddTaskStyle";
 import { useForm } from "react-hook-form";
 import { useDispatch  } from "react-redux";
-import { EditTask } from "../actions/CreateTask";
+import { EditTask,DeleteTask } from "../actions/CreateTask";
 
 const  EditName = ({id ,handleClick }) => {
 
@@ -38,7 +38,7 @@ const  EditName = ({id ,handleClick }) => {
                 <Card>
                     <div>
                         <Header>
-                            <h4>Add new card</h4>
+                            <h4>Edit Card</h4>
                             <button onClick={() => handleClick(id)}>
                                 X
                             </button>
@@ -108,7 +108,7 @@ const  EditName = ({id ,handleClick }) => {
                             </Button>
                             <Button
                                 variant="danger"
-                                onClick={() => handleClick(id)}
+                                onClick={() => dispatch(DeleteTask(id))}
                             >
                                 Delete
                             </Button>
