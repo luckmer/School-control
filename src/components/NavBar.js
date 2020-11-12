@@ -43,7 +43,7 @@ const  NavBar = ()=>{
                             <ul>
                                 <li>
                                     <Link
-                                        to="/"
+                                        to="/notes"
                                         onClick={() => dispatch(SetEditOn({data : true}))}
                                     >
                                         Notes
