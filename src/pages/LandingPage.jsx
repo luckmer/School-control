@@ -76,15 +76,3 @@ const LandingPage = () =>{
 
 export default LandingPage;
 
-
-// const [finder, setFinder] = useState({
-//     filterMark: "", filterSubject: ""
-// });
-// const {
-//     filterMark, filterSubject
-// } = finder;
-
-// const {paginate, page,ContextView
-// } = PaginatingControl({
-//     LimitControl, Mapping
-// });

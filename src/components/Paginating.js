@@ -24,6 +24,7 @@ const Div = styled.div`
         }
     }
 `;
+
 const Paginating = ({ paginate, LimitControl, totalPosts }) =>{
     
     const pageNumbers = [];
